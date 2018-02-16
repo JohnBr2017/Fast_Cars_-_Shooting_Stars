@@ -1,0 +1,1 @@
+// a car that crashes, advancing and falling behind are all mutuall exclusive

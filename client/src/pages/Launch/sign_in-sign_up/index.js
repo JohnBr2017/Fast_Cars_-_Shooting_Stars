@@ -5,7 +5,7 @@ class SignUpIn extends Component {
         return (
             <form >
                 <input type="text" placeholder="username" />
-                <input type="text" placeholder="password" />
+                <input type="password" placeholder="password" />
                 <button>Sign Up</button>
                 <button>Sign In</button>
             </form>
