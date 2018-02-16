@@ -1,11 +1,11 @@
 import React from 'react'
 
-function About() {
+function Scorecard() {
     return (
         <div>
-            About
+            scorecard
         </div>
     )
 }
 
-export default About
+export default Scorecard
