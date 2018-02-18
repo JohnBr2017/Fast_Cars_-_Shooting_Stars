@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import './Sign.css';
 
 class SignUpIn extends Component {
     render() {
