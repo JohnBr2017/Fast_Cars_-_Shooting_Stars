@@ -1,6 +1,8 @@
-import React from 'react'
-import Scorecard from "./Scorecard"
-import Broadcast from "./Broadcast"
+import React from 'react';
+import Scorecard from "./Scorecard";
+import Broadcast from "./Broadcast";
+
+import './Race.css';
 
 function Race() {
     return (
