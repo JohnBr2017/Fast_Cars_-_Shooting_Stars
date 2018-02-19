@@ -1,0 +1,32 @@
+.scorecard{
+    width: 25vw;
+    border: red dotted 1px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "usertitle  scoretitle"
+    "scores scores"
+}
+.userTitle{
+    grid-area: usertitle;
+}
+.scoreTitle{
+    grid-area: scoretitle;
+}
+.scores{
+    grid-area: scores;
+}
+.singleScore{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 
+    "user score"
+}
+.winnerName{
+    grid-area: user;
+}
+.winnerScore{
+    grid-area: score;
+}
+
