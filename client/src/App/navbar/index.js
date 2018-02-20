@@ -5,12 +5,14 @@ import './Nav.css';
 
 function Navbar(props) {
     return (
-        <div >
-            <Link to="/">SignUpIn</Link>
-            <Link to="/Home" >Home</Link>
-            <Link to="/Race" >Race</Link>
-            <Link to="/About" >About</Link>
-            <Link to="/Contact">Contact</Link>
+        <div className="outer">
+            <div className="navDiv">
+                <Link to="/Home" >Home</Link>
+                <Link to="/Race" >Race</Link>
+                <Link to="/About">About</Link>
+                <Link to="/Contact">Contact</Link>
+                <Link to="/">Login</Link>
+            </div>
         </div>
     )
 }

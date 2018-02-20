@@ -1,0 +1,17 @@
+.outer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navDiv {
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border: solid black 3px;
+    border-radius: 300px;
+    opacity: 0.8;
+    
+}

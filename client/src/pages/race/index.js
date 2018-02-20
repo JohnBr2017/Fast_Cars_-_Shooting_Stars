@@ -6,7 +6,7 @@ import './Race.css';
 
 function Race() {
     return (
-        <div>
+        <div className='raceBackground'>
             Race
             <Scorecard></Scorecard>
             <Broadcast></Broadcast>
