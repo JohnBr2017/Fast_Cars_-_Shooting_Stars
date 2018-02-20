@@ -1,7 +1,6 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import  Scoreboard  from "./scoreboard"
 
-
 import thunk from "redux-thunk";
 
 const store = createStore(
