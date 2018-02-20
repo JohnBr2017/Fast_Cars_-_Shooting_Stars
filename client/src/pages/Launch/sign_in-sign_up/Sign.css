@@ -1,0 +1,26 @@
+.outerSign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+.signForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 300px;
+    width: 200px;
+    opacity: 0.8;
+    border: solid black 2px;
+    border-radius: 3px;
+}
+
+.innerSign {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
