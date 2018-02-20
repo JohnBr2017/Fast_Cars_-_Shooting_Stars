@@ -15,45 +15,27 @@ export function getScore() {
             });
     }
 }
-export function getScoreById(id) {
+export function addPlayerScore(newScore) {
     return function (dispatch) {
-        axios.get(scoreUrl + id, id)
+        axios.post(scoreUrl, newScore)
             .then(response => {
+                console.log(response.data)
                 dispatch({
-                    type: "GET_SCORE_By_Id",
-                    payload: response.data
-                })
-            })
-    }
-}
-export function deletedScore(id) {
-    return function (dispatch) {
-        axios.delete(scoreUrl + id, id)
-            .then(response => {
-                dispatch({
-                    type: "DELETE_SCORE",
-                    id
+                    type: "NEW_SCORE",
+                    newPlayerScore: response.data
                 })
             })
             .catch(err => {
-                console.log(err)
+                console.error(err)
             })
     }
 }
-
 const Scoreboard = (prevState = [], action) => {
     switch (action.type) {
         case "GET_SCORES":
             return action.payload
-        case "GET_SCORE_By_Id":
-            return prevState.filter((score) => {
-                console.log(score)
-                return score._id === action.id
-            })
-            case "DELETE_SCORE":
-            return prevState.filter((score) => {
-                return score._id !== action.id;
-            })
+        case "NEW_SCORE":
+            return [...prevState, action.newPlayerScore];
 
         default:
             return prevState;

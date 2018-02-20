@@ -27,8 +27,7 @@ class Scorecard extends Component {
                 <h2 className="scoreTitle">Score</h2>
                 <div className="scores">
                 {/* the .splice() is to make sure the max that can be shown is set to 5 */}
-                {/* still need to make it sort by score */}
-                    {winnerList.slice(0, 5).map((winners, i) => {
+                    {winnerList.sort(function(a, b){return b.score - a.score}).slice(0, 5).map((winners, i) => {
                         let { username, score } = winners
                         return <div className="singleScore" key={i}> 
                             <p className="winnerName" >{username}</p>
