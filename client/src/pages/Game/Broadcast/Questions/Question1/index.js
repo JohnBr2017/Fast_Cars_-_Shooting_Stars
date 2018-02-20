@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 class Question1 extends Component {
     render() {
@@ -8,9 +8,9 @@ class Question1 extends Component {
                 <h1>Question 1?</h1>
                 {/* {possibleAnswers.map((answer, i)=>{
                     return  */}
-                    <Link to="/race/question2"
-                    // answer={answer} key={i} correct={correct} 
-                    > answer</Link>
+                <Link to="/game/question2"
+                // answer={answer} key={i} correct={correct} 
+                > answer</Link>
                 {/* })} */}
             </div>
         )

@@ -108,7 +108,7 @@ const screenCars = (sequence, availableCars, eventType) => {
                 return availableCars.some(carInAvailable => (carInAvailable === carInSequence));
             })
             return availableCars[randomOf(availableCars.length - 1)];
-            ;
+            
         case (""):
             return availableCars[randomOf(availableCars.length - 1)];
     }
@@ -149,6 +149,8 @@ const eventPhaseSwitch = (event, phase, sequence, availableCars, index) => {
             return eventChange(event.description2_type, sequence, availableCars, index);
         case ("phase3"):
             return eventChange(event.description3_type, sequence, availableCars, index);
+        default:
+            return "susan";
     }
 }
 
@@ -182,11 +184,14 @@ const eventChange = (type, sequence, potentialCars, indexOfChange) => {
                 availableCars: potentialCars,
                 crashedCar: ""
             };
+        default:
+            return "susan";
     }
 };
 
 // START GAME
 const startGame = (gameData) => {
+// export function startGame(gameData) {
     // DECLARE VARIABLES
     let potentialEvents = [...events]
     // MAP THE CAR IDS
@@ -339,9 +344,9 @@ const startGame = (gameData) => {
     availableCars = [...sequence4Phase0]
     gameData.raceData.sequence4.crashedCars = [...gameData.raceData.sequence3.crashedCars]
     let beachEvents = screenEvents(potentialEvents, "beach")
-    let fourthEvent = beachEvents[randomOf(plateauEvents.length)]
+    let fourthEvent = beachEvents[randomOf(beachEvents.length)]
     potentialEvents.splice(potentialEvents.indexOf(fourthEvent), 1)
-
+    console.log(fourthEvent.name)
     // FIRST EVENT PHASE CHANGE
     eventCar = screenCars(sequence4Phase0, availableCars, fourthEvent.description1_type)
     fourthEvent.description1_car = eventCar
@@ -399,20 +404,18 @@ const startGame = (gameData) => {
     finishline.description2_car = secondPlaceCar
 
     // FINAL EVENT PHASE CHANGE
-    let winnerCounter = randomOf(2);
+    let winnerCounter = randomOf(2); 
     if (winnerCounter === 0) {
         finishline.description3_car = firstPlaceCar;
-        let sequence5Phase3 = sequence5Phase0
+        gameData.raceData.sequence5.carOrder = [...sequence5Phase0]
     } else if (winnerCounter === 1) {
         finishline.description3_car = secondPlaceCar;
-        let sequence5Phase3 = advanceCar(sequence5Phase0, 1)
+        gameData.raceData.sequence5.carOrder = advanceCar(sequence5Phase0, 1)
     } 
 
-    // POPULATE SEQUENCE 4 & RACE DESCRIPTION
-    gameData.raceData.sequence4.raceDescription = compileDescription(fourthEvent)
-    gameData.raceData.sequence4.carOrder = [...sequence4Phase3]
+    // RACE DESCRIPTION
+    gameData.raceData.sequence5.raceDescription = compileDescription(finishline)
 
-    gameData.active = true
     // RETURN GAME DATA OBJECT
     return { 
         type: "START_GAME",
@@ -420,23 +423,23 @@ const startGame = (gameData) => {
         }   
 }
 
-startGame(initialGameData);
+startGame(initialGameData)
 
 /////////////
 // REDUCER //
 /////////////
 
-let game = (prevData = {active: false, data: initalGameData}, action) => {
-    switch(action.type) {
-        case("START_GAME"):
-            return {
-                active: true,
-                data: action.payload
-            }
-        ;
-        default: 
-        return prevData;
-    }
-}
+// let game = (prevData = {active: false, data: initialGameData}, action) => {
+//     switch(action.type) {
+//         case("START_GAME"):
+//             return {
+//                 active: true,
+//                 data: action.payload
+//             }
+//         ;
+//         default: 
+//         return prevData;
+//     }
+// }
 
-export default game
+// export default game

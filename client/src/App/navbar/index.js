@@ -5,10 +5,10 @@ import './Nav.css';
 
 function Navbar(props) {
     return (
-        <div >
+        <div className="navbar">
             <Link to="/">SignUpIn</Link>
             <Link to="/Home" >Home</Link>
-            <Link to="/Race" >Race</Link>
+            <Link to="/Game" >Game</Link>
             <Link to="/About" >About</Link>
             <Link to="/Contact">Contact</Link>
         </div>
