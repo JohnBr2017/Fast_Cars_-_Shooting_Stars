@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import {Link} from "react-router-dom"
 
-class Question3 extends Component {
+class Question2 extends Component {
     render() {
         return (
             <div>
-                <h1>Question 3?</h1>
+                <h1>Question 2?</h1>
                 {/* {possibleAnswers.map((answer, i)=>{
                     return  */}
-                    <Link to="/race/question4"
+                    <Link to="/game/question3"
                     // answer={answer} key={i} correct={correct} 
                     > answer</Link>
                 {/* })} */}
@@ -16,4 +16,4 @@ class Question3 extends Component {
         )
     }
 }
-export default Question3
+export default Question2

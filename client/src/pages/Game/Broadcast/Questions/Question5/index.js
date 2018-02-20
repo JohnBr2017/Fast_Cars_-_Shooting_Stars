@@ -8,7 +8,7 @@ class Question5 extends Component {
                 <h1>Question 5?</h1>
                 {/* {possibleAnswers.map((answer, i)=>{
                     return  */}
-                    <Link to="/race/scoretally"
+                    <Link to="/game/scoretally"
                     // answer={answer} key={i} correct={correct} 
                     > answer</Link>
                 {/* })} */}
