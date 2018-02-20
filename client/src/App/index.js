@@ -7,7 +7,7 @@ import Launcher from "../pages/Launch"
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import Race from "../pages/Race";
+import Game from "../pages/Game";
 
 
 export default class App extends Component {
@@ -19,7 +19,7 @@ export default class App extends Component {
                     <Route exact path='/' component={Launcher} />
                     <Route path="/home" component={Home} />
                     <Route path="/about" component={About} />
-                    <Route path='/race' component={Race} />
+                    <Route path='/game' component={Game} />
                     <Route path='/contact' component={Contact} />
                 </Switch>
             </div>

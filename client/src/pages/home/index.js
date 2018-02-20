@@ -1,4 +1,6 @@
 import React from 'react';
+import Scorecard from "../Game/Scorecard";
+
 
 import './Home.css';
 
