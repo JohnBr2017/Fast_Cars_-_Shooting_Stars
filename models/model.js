@@ -7,7 +7,12 @@ const modelzSchema = new mongoose.Schema({
     "playerThree": String,
     "playerFour": String,
     "playerFive": String,
-    "players": Number
+    "players": Number,
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
 });
 
 module.exports = mongoose.model("Modelz", modelzSchema);

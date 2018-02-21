@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Link} from "react-router-dom"
 
 class Question2 extends Component {
     render() {
@@ -7,11 +6,9 @@ class Question2 extends Component {
             <div>
                 <h1>Question 2?</h1>
                 {/* {possibleAnswers.map((answer, i)=>{
-                    return  */}
-                    <Link to="/game/question3"
-                    // answer={answer} key={i} correct={correct} 
-                    > answer</Link>
-                {/* })} */}
+                    return 
+                <p answer={answer} key={i} correct={correct} > answer</p>
+                })} */}
             </div>
         )
     }

@@ -10,9 +10,10 @@ modelzRoutes.get('/', (req, res) => {
 });
 modelzRoutes.post('/', (req, res) => {
     const newModelz = new Modelz(req.body);
+    modelz.user = req.user._id;
     newModelz.save((err) => {
         if (err) return res.status(500).send(err);
-        return res.send(newModelz);
+        return res.status(201).send(newModelz);
     })
 });
 modelzRoutes.get('/:id', (req, res) => {
