@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link, Switch, Route } from "react-router-dom"
 
-import Race from "../Race"
 import Question1 from "./Questions/Question1"
 import Question2 from "./Questions/Question2"
 import Question3 from "./Questions/Question3"
@@ -12,6 +11,7 @@ import ScoreTally from "./ScoreTally"
 function Broadcast() {
     return (
         <div>
+        testing
             <Link to="/game/question1" >Start first question</Link>
             <Switch>
                 <Route path="/game/question1" component={Question1} />
@@ -21,7 +21,6 @@ function Broadcast() {
                 <Route path="/game/question5" component={Question5} />
                 <Route path="/game/scoretally" component={ScoreTally} />
             </Switch>
-            <Race></Race>
         </div>
     )
 }

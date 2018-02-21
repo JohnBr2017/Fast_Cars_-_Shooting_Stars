@@ -108,10 +108,14 @@ const screenCars = (sequence, availableCars, eventType) => {
                 return availableCars.some(carInAvailable => (carInAvailable === carInSequence));
             })
             return availableCars[randomOf(availableCars.length - 1)];
-            
+
         case (""):
             return availableCars[randomOf(availableCars.length - 1)];
+        default:
+            return "susan";
+
     }
+
 }
 
 const advanceCar = (arr, index) => {
@@ -189,9 +193,18 @@ const eventChange = (type, sequence, potentialCars, indexOfChange) => {
     }
 };
 
+// CLEAR GAME
+export function clearGame() {
+    return {
+        type: "CLEAR_GAME",
+        payload: initialGameData
+    }
+}
+
+
 // START GAME
-const startGame = (gameData) => {
-// export function startGame(gameData) {
+
+export function startGame(gameData) {
     // DECLARE VARIABLES
     let potentialEvents = [...events]
     // MAP THE CAR IDS
@@ -346,7 +359,6 @@ const startGame = (gameData) => {
     let beachEvents = screenEvents(potentialEvents, "beach")
     let fourthEvent = beachEvents[randomOf(beachEvents.length)]
     potentialEvents.splice(potentialEvents.indexOf(fourthEvent), 1)
-    console.log(fourthEvent.name)
     // FIRST EVENT PHASE CHANGE
     eventCar = screenCars(sequence4Phase0, availableCars, fourthEvent.description1_type)
     fourthEvent.description1_car = eventCar
@@ -394,7 +406,7 @@ const startGame = (gameData) => {
     availableCars = [...sequence4Phase0]
     gameData.raceData.sequence5.crashedCars = [...gameData.raceData.sequence4.crashedCars]
     let finishline = potentialEvents[1];
-    
+
     // FIRST EVENT PHASE 
     let firstPlaceCar = sequence5Phase0[0]
     finishline.description1_car = firstPlaceCar
@@ -404,42 +416,48 @@ const startGame = (gameData) => {
     finishline.description2_car = secondPlaceCar
 
     // FINAL EVENT PHASE CHANGE
-    let winnerCounter = randomOf(2); 
+    let winnerCounter = randomOf(2);
     if (winnerCounter === 0) {
         finishline.description3_car = firstPlaceCar;
         gameData.raceData.sequence5.carOrder = [...sequence5Phase0]
     } else if (winnerCounter === 1) {
         finishline.description3_car = secondPlaceCar;
         gameData.raceData.sequence5.carOrder = advanceCar(sequence5Phase0, 1)
-    } 
+    }
 
     // RACE DESCRIPTION
     gameData.raceData.sequence5.raceDescription = compileDescription(finishline)
 
     // RETURN GAME DATA OBJECT
-    return { 
+    return {
         type: "START_GAME",
         payload: gameData
-        }   
+    }
 }
 
-startGame(initialGameData)
+
 
 /////////////
 // REDUCER //
 /////////////
 
-// let game = (prevData = {active: false, data: initialGameData}, action) => {
-//     switch(action.type) {
-//         case("START_GAME"):
-//             return {
-//                 active: true,
-//                 data: action.payload
-//             }
-//         ;
-//         default: 
-//         return prevData;
-//     }
-// }
+let game = (prevData = { active: false, data: initialGameData }, action) => {
+    switch (action.type) {
+        case ("START_GAME"):
+            return {
+                active: true,
+                data: action.payload
+            }
+                ;
+        case ("CLEAR_GAME"):
+            return {
+                active: false,
+                data: action.payload
+            }
+                ;
+        default:
+            return prevData;
+    }
+}
 
-// export default game
+export default game
