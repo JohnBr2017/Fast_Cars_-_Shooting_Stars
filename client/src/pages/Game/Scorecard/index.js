@@ -11,8 +11,8 @@ class Scorecard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            username: "-----",
-            score: "-----",
+            username: "",
+            score: "",
             // time: ""
         }
     }
