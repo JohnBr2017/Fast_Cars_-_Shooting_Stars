@@ -7,6 +7,8 @@ import Plateau from "./Plateau"
 import Beach from "./Beach"
 import FinishLine from "./FinishLine"
 
+import "./Race.css"
+
 class Race extends Component {
     constructor(props) {
         super(props);
@@ -63,7 +65,7 @@ class Race extends Component {
         let broadcast = { display: this.state.broadcast ? "block" : "none" }
         let { game } = this.props
         return (
-            <div>
+            <div >
                 <div style={start}>
                     <StartingLine game={game} />
                     <button onClick={this.handleStartChange} > > </button>
@@ -85,7 +87,7 @@ class Race extends Component {
                     <button onClick={this.handleFinishChange} > > </button>
                 </div>
                 <div style={broadcast}>
-                    <Broadcast />
+                    <Broadcast game={game}/>
                 </div>
             </div>
         )
