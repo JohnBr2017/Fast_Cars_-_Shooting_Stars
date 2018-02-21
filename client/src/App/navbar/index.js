@@ -8,7 +8,7 @@ function Navbar(props) {
         <div className="outer">
             <div className="navDiv">
                 <Link to="/Home" >Home</Link>
-                <Link to="/Race" >Race</Link>
+                <Link to="/Game" >Race</Link>
                 <Link to="/About">About</Link>
                 <Link to="/Contact">Contact</Link>
                 <Link to="/">Login</Link>
