@@ -67,23 +67,23 @@ class Broadcast extends Component {
             <div>
                 <div style={quest1} >
                     <Question1 game={game} />
-                    <button onClick={this.handleQuest1Change} > > </button>
+                    <button onClick={this.handleQuest1Change} > &rarr; </button>
                 </div>
                 <div style={quest2}>
                     <Question2 game={game}/>
-                    <button onClick={this.handleQuest2Change} > > </button>
+                    <button onClick={this.handleQuest2Change} > &rarr; </button>
                 </div>
                 <div style={quest3}>
                     <Question3 game={game}/>
-                    <button onClick={this.handleQuest3Change} > > </button>
+                    <button onClick={this.handleQuest3Change} > &rarr; </button>
                 </div>
                 <div style={quest4}>
                     <Question4 game={game}/>
-                    <button onClick={this.handleQuest4Change} > > </button>
+                    <button onClick={this.handleQuest4Change} > &rarr; </button>
                 </div>
                 <div style={quest5}>
                     <Question5 game={game}/>
-                    <button onClick={this.handleQuest5Change} > > </button>
+                    <button onClick={this.handleQuest5Change} > &rarr; </button>
                 </div>
                 <div style={score}>
                     <ScoreTally game={game}/>
