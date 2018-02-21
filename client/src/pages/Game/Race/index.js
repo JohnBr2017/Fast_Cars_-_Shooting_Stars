@@ -68,23 +68,23 @@ class Race extends Component {
             <div >
                 <div style={start}>
                     <StartingLine game={game} />
-                    <button onClick={this.handleStartChange} > > </button>
+                    <button onClick={this.handleStartChange} > &rarr; </button>
                 </div>
                 <div style={spiral}>
                     <Spiral game={game} />
-                    <button onClick={this.handleSpiralChange} > > </button>
+                    <button onClick={this.handleSpiralChange} > &rarr; </button>
                 </div>
                 <div style={plateau}>
                     <Plateau game={game} />
-                    <button onClick={this.handlePlateauChange} > > </button>
+                    <button onClick={this.handlePlateauChange} > &rarr; </button>
                 </div>
                 <div style={beach}>
                     <Beach game={game} />
-                    <button onClick={this.handleBeachChange} > > </button>
+                    <button onClick={this.handleBeachChange} > &rarr; </button>
                 </div>
                 <div style={finish}>
                     <FinishLine game={game} />
-                    <button onClick={this.handleFinishChange} > > </button>
+                    <button onClick={this.handleFinishChange} > &rarr; </button>
                 </div>
                 <div style={broadcast}>
                     <Broadcast game={game}/>
