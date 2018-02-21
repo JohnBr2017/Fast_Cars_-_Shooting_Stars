@@ -39,7 +39,7 @@ class Game extends Component {
                 <div style={launch}>
                     Launchpad for start of race
                 <p>HERE'S A BUNCH OF TEXT ABOUT H0W TO PLAY OUR GAME CLICK THE BUTTON WHEN YOU WANT, LINDA.</p>
-                    <button onClick={this.handleGoClick}  >GO</button>
+                    <button className="goButton" onClick={this.handleGoClick}  >GO</button>
                 </div>
                 <div style={race}>
                     <Race game={game} ></Race>

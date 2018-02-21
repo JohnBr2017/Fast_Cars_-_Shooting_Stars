@@ -68,23 +68,23 @@ class Race extends Component {
             <div >
                 <div style={start}>
                     <StartingLine game={game} />
-                    <button onClick={this.handleStartChange} > > </button>
+                    <button onClick={this.handleStartChange} className="nextScreenButton1"> &rarr; </button>
                 </div>
                 <div style={spiral}>
                     <Spiral game={game} />
-                    <button onClick={this.handleSpiralChange} > > </button>
+                    <button onClick={this.handleSpiralChange} className="nextScreenButton2" > &rarr; </button>
                 </div>
                 <div style={plateau}>
                     <Plateau game={game} />
-                    <button onClick={this.handlePlateauChange} > > </button>
+                    <button onClick={this.handlePlateauChange} className="nextScreenButton3" > &rarr; </button>
                 </div>
                 <div style={beach}>
                     <Beach game={game} />
-                    <button onClick={this.handleBeachChange} > > </button>
+                    <button onClick={this.handleBeachChange} className="nextScreenButton4" > &rarr; </button>
                 </div>
                 <div style={finish}>
                     <FinishLine game={game} />
-                    <button onClick={this.handleFinishChange} > > </button>
+                    <button onClick={this.handleFinishChange} className="nextScreenButton5" > &rarr; </button>
                 </div>
                 <div style={broadcast}>
                     <Broadcast game={game}/>
