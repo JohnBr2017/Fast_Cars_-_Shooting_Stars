@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import SignupForm from "./SignupForm";
+import SignupForm from "./SignUpForm";
 
 import { connect } from "react-redux";
 import { signup } from '../../redux/auth';
+
+import '../Launch/Login/Sign.css';
 
 class SignupFormContainer extends Component {
     constructor() {
@@ -13,7 +15,9 @@ class SignupFormContainer extends Component {
                 username: "",
                 password: ""
             }
-        }
+        },
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(e) {

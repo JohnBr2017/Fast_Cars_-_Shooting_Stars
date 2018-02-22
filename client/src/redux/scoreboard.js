@@ -22,7 +22,7 @@ export function addPlayerScore(newScore) {
                 console.log(response.data)
                 dispatch({
                     type: "NEW_SCORE",
-                    newPlayerScore: response.data
+                    newPlayerScore: response.data 
                 })
             })
             .catch(err => {

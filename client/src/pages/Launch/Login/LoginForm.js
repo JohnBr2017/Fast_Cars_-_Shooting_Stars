@@ -1,11 +1,14 @@
 import React from 'react';
+import './Sign.css';
+import { Link, Route, Switch } from "react-router-dom";
+import SignUp from '../../SignUp/index';
 
-function SignupForm(props) {
+function LoginForm(props) {
     return (
         <div className="outerSign">
             <form className="signForm" onSubmit={props.handleSubmit}>
                 <div className="innerSign">
-                    <h3>Sign Up!</h3>
+                    <h3>Log In</h3>
                     <input
                         onChange={props.handleChange}
                         value={props.username}
@@ -21,10 +24,14 @@ function SignupForm(props) {
                         placeholder="Password" />
                     <br />
                     <button type="submit">Submit</button>
-                </div> 
+                    <br />
+                    <br />
+                    <br />
+                    <Link to="/SignUp" component={SignUp}>Sign Up</Link>
+                </div>
             </form>
         </div>
     )
 }
 
-export default SignupForm
+export default LoginForm;
