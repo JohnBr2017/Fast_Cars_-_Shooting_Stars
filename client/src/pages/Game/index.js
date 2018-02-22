@@ -48,16 +48,8 @@ class Game extends Component {
                         <Race game={game} ></Race>
                     </div>
                 </div>
-<<<<<<< HEAD
-                <div className="scorecard">
-                    <Scorecard></Scorecard>
-                </div>
-                <div>
-                    <CarProfiles></CarProfiles>
-=======
                 {/* <div className="scorecard">
                     <ScoreBoard />
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
                 </div>
                 <div>
                     <CarProfiles></CarProfiles>

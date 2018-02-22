@@ -297,10 +297,6 @@ const spitOutAnswer = (sequence, answArr, changingAnswer) => {
 
 const assignQuestion = (event) => {
     if (event.name === "toto_appears") {
-<<<<<<< HEAD
-
-=======
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
         return {
             part1: "which was the car was the one that crashed",
             part2: "which was the car was the one that jammed out to \"Africa\"'s sweet jams",
@@ -314,7 +310,6 @@ const assignQuestion = (event) => {
         car1: "",
         car2: ""
     }
-<<<<<<< HEAD
     // 1 & 2
     if (event.description1_type !== "", event.description2_type !== "") {
         output.part1 = questions.filter(question => {
@@ -354,58 +349,6 @@ const assignQuestion = (event) => {
         output.car2 = event.description3_car
     }
     return output
-=======
-    // RUNNING OF THE COEDS EXCEPTION
-    if (event.name === "running_of_the_coeds") {
-        output.part1 = questionTextAssigner(event.description1_type)
-        output.car1 = event.description1_car
-
-        output.part2 = questionTextAssigner(event.description2_type)
-        output.car2 = event.description2_car
-        return output
-    }
-
-    // 1 & 2
-    if (event.description3_type === "") {
-        output.part1 = questionTextAssigner(event.description1_type)
-        output.car1 = event.description1_car
-
-        output.part2 = questionTextAssigner(event.description2_type)
-        output.car2 = event.description2_car
-        return output
-    }
-    // 2 & 3
-    if (event.description1_type === "") {
-        output.part1 = questionTextAssigner(event.description2_type)
-        output.car1 = event.description2_car
-
-        output.part2 = questionTextAssigner(event.description3_type)
-        output.car2 = event.description3_car
-        return output
-    }
-    // 1 & 3
-    if (event.description2_type === "") {
-        output.part1 = questionTextAssigner(event.description1_type)
-        output.car1 = event.description1_car
-        
-        output.part2 = questionTextAssigner(event.description3_type)
-        output.car2 = event.description3_car
-        return output
-    }
-}
-
-const questionTextAssigner = (type) => {
-    switch(type) {
-        case("crash"):
-            return questions[2].text;
-        case("advance"):
-            return questions[3].text;
-        case("fall_behind"):
-            return questions[4].text;
-        default:
-            return "nothing is real, linda"
-    }
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
 }
 
 // CLEAR GAME
