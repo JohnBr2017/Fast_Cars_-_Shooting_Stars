@@ -85,7 +85,7 @@
         "fall_behind": true
     },
     {
-        "name": "Toto Appears",
+        "name": "toto_appears",
         "description1": "A wild Toto appears! They starting singing their one hit wonder, \"Africa\" and ",
         "description1_type": "",
         "description1_car": "",
@@ -125,7 +125,7 @@
         "description2_type": "",
         "description2_car": "", 
         "description3": " is actually making googly eyes at the aliens. What is this, a xenospecies flirty advance. Now it seems ",
-        "description3_type": "",
+        "description3_type": "advance",
         "description3_car": "",
         "description4": " has joined in. Oh between the two, they seem to prefer the latter. They give a sweet flying sauce back bumper push real fast giving them a lead! Then those aliens show they can take a hint and get out of here. Maybe we'll hear from them another year.",
         "locations": ["beach", "plateau", "spiral"],

@@ -1,7 +1,7 @@
 [
     { 
         "name": "question1",
-        "type": "",
+        "type": "startingline",
         "text": "Who was in first place and who was in last place at the starting line?",
         "correctAnswer": "",
         "falseAnswer1": "" ,
@@ -10,7 +10,7 @@
     },
     { 
         "name": "question2",
-        "type": "",
+        "type": "finishline",
         "text": "Who was the Winner!!!?",
         "correctAnswer": "",
         "falseAnswer1": "" ,
