@@ -4,7 +4,7 @@
 // IMPORT FROM FILES
 const cars = require("../shared/cars.json")
 const events = require("../shared/events.json")
-// const question = require("../shared/questions.json")
+const questions = require("../shared/questions.json")
 
 //////////////////////////
 // INITIAL STATE OBJECT //
@@ -55,24 +55,105 @@ let initialGameData = {
     questions: {
         question1: {
             text: "",
-            correct_values: []
+            answers: [
+                {
+                    answer: "",
+                    correct: true,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                }
+            ]
 
         },
         question2: {
+            text: "",
+            answers: [
+                {
+                    answer: "",
+                    correct: true,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                }
+            ]
 
         },
         question3: {
+            text: "",
+            answers: [
+                {
+                    answer: "",
+                    correct: true,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                }
+            ]
 
         },
         question4: {
-
+            text: "",
+            answers: [
+                {
+                    answer: "",
+                    correct: true,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                }
+            ]
         },
         question5: {
+            text: "",
+            answers: [
+                {
+                    answer: "",
+                    correct: true,
+                },
+                {
+                    answer: "",
+                    correct: false,
+                }
+            ]
 
         }
-    },
-    scoreCard: {
-
     }
 }
 
@@ -105,7 +186,9 @@ const screenCars = (sequence, availableCars, eventType) => {
         case ("fall_behind"):
             carOrder.pop();
             availableCars = carOrder.filter(carInSequence => {
-                return availableCars.some(carInAvailable => (carInAvailable === carInSequence));
+                return availableCars.some(carInAvailable => {
+                    return (carInAvailable === carInSequence)
+                });
             })
             return availableCars[randomOf(availableCars.length - 1)];
 
@@ -191,7 +274,83 @@ const eventChange = (type, sequence, potentialCars, indexOfChange) => {
         default:
             return "susan";
     }
-};
+}
+
+const shuffleArr = (arr) => {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+}
+
+const spitOutAnswer = (sequence, answArr, changingAnswer) => {
+    let i = 0
+    while (answArr.some(answer => (answer === changingAnswer)) || i < 20) {
+        let pseudoSequence = [...sequence]
+        let grab1 = pseudoSequence.splice(randomOf(sequence.length - 1), 1)[0]
+        let grab2 = pseudoSequence.splice(randomOf(sequence.length - 1), 1)[0]
+        changingAnswer = `${grab1} and ${grab2}`
+        i = i + 1
+    }
+    return changingAnswer
+}
+
+const assignQuestion = (event) => {
+    if (event.name === "toto_appears") {
+
+        return {
+            part1: "which was the car was the one that crashed",
+            part2: "which was the car was the one that jammed out to \"Africa\"'s sweet jams",
+            car1: event.description1_car,
+            car2: event.description2_car
+        }
+    }
+    let output = {
+        part1: "",
+        part2: "",
+        car1: "",
+        car2: ""
+    }
+    // 1 & 2
+    if (event.description1_type !== "", event.description2_type !== "") {
+        output.part1 = questions.filter(question => {
+
+            return (question.type === event.description1_type)
+        })[0]
+
+        output.car1 = event.description1_car
+
+        output.part2 = questions.filter(question => {
+            return (question.type === event.description2_type)
+        })[0].text
+        output.car2 = event.description2_car
+    }
+    // 2 & 3
+    if (event.description1_type === "", event.description2_type !== "") {
+        output.part1 = questions.filter(question => {
+            return (question.type === event.description2_type)
+        })[0].text
+        output.car1 = event.description2_car
+
+        output.part2 = questions.filter(question => {
+            return (question.type === event.description3_type)
+        })[0].text
+        output.car2 = event.description3_car
+    }
+    // 1 & 3
+    if (event.description1_type !== "", event.description2_type === "") {
+        output.part1 = questions.filter(question => {
+            return (question.type === event.description1_type)
+        })[0].text
+        output.car1 = event.description1_car
+
+        output.part2 = questions.filter(question => {
+            return (question.type === event.description3_type)
+        })[0].text
+        output.car2 = event.description3_car
+    }
+    return output
+}
 
 // CLEAR GAME
 export function clearGame() {
@@ -203,7 +362,6 @@ export function clearGame() {
 
 
 // START GAME
-
 export function startGame(gameData) {
     // DECLARE VARIABLES
     let potentialEvents = [...events]
@@ -212,10 +370,7 @@ export function startGame(gameData) {
         return car.name
     })
     // RANDOMIZE INITAL ORDER OF THE RACE
-    for (let i = carNames.length - 1; i > 0; i--) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [carNames[i], carNames[j]] = [carNames[j], carNames[i]];
-    }
+    shuffleArr(carNames)
     // ESTABLISH CARS INITIAL SEQUENCE
     let sequence0 = gameData.raceData.sequence0
     sequence0 = [...carNames]
@@ -348,7 +503,6 @@ export function startGame(gameData) {
     gameData.raceData.sequence3.raceDescription = compileDescription(thirdEvent)
     gameData.raceData.sequence3.carOrder = [...sequence3Phase3]
 
-
     // // // // // // // // // // // // // // // // // // // // // // //
     //////////////////// E V E N T    4 ////////////////////////////////
     // // // // // // // // // // // // // // // // // // // // // // //
@@ -357,7 +511,8 @@ export function startGame(gameData) {
     availableCars = [...sequence4Phase0]
     gameData.raceData.sequence4.crashedCars = [...gameData.raceData.sequence3.crashedCars]
     let beachEvents = screenEvents(potentialEvents, "beach")
-    let fourthEvent = beachEvents[randomOf(beachEvents.length)]
+    // let fourthEvent = beachEvents[randomOf(beachEvents.length)]
+    let fourthEvent = events[3]
     potentialEvents.splice(potentialEvents.indexOf(fourthEvent), 1)
     // FIRST EVENT PHASE CHANGE
     eventCar = screenCars(sequence4Phase0, availableCars, fourthEvent.description1_type)
@@ -382,9 +537,9 @@ export function startGame(gameData) {
     if (eventOutputs.crashedCar !== "") {
         gameData.raceData.sequence4.crashedCars = [...gameData.raceData.sequence4.crashedCars, eventOutputs.crashedCar]
     }
-
     // THIRD EVENT PHASE CHANGE
     eventCar = screenCars(sequence4Phase2, availableCars, fourthEvent.description3_type)
+
     fourthEvent.description3_car = eventCar
     eventCarIndex = sequence4Phase2.indexOf(eventCar)
     eventOutputs = eventPhaseSwitch(fourthEvent, "phase3", sequence4Phase2, availableCars, eventCarIndex);
@@ -402,6 +557,7 @@ export function startGame(gameData) {
     // // // // // // // // // // // // // // // // // // // // // // //
     /////////////////////// FINISH LINE ////////////////////////////////
     // // // // // // // // // // // // // // // // // // // // // // //
+
     let sequence5Phase0 = [...gameData.raceData.sequence4.carOrder]
     availableCars = [...sequence4Phase0]
     gameData.raceData.sequence5.crashedCars = [...gameData.raceData.sequence4.crashedCars]
@@ -428,6 +584,151 @@ export function startGame(gameData) {
     // RACE DESCRIPTION
     gameData.raceData.sequence5.raceDescription = compileDescription(finishline)
 
+    //////////////////////////////////////////////////////
+    /////////////////// QUESTIONS ////////////////////////
+    //////////////////////////////////////////////////////
+
+
+
+    //////////////////////////////////////////////////////
+    /////////////////// QUESTION 1 ///////////////////////
+    //////////////////////////////////////////////////////
+
+    // ASSIGN CORRECT ANSWER
+    gameData.questions.question1.text = questions[0].text
+    let correct1 = sequence1Phase3[0]
+    let correct2 = sequence1Phase3[4]
+
+    gameData.questions.question1.answers[0].answer = `${correct1} and ${correct2}`
+    let questionsArray = [gameData.questions.question1.answers[0].answer];
+
+    // ASSIGN ANSWER 2 
+    let ques1answ2 = `${gameData.questions.question1.answers[0].answer}`;
+    ques1answ2 = spitOutAnswer(sequence1Phase3, questionsArray, ques1answ2)
+    questionsArray = [...questionsArray, ques1answ2]
+    gameData.questions.question1.answers[1].answer = ques1answ2
+
+    // ASSIGN ANSWER 3
+    let ques1answ3 = `${gameData.questions.question1.answers[0].answer}`;
+    ques1answ3 = spitOutAnswer(sequence1Phase3, questionsArray, ques1answ3)
+    questionsArray = [...questionsArray, ques1answ3]
+    gameData.questions.question1.answers[2].answer = ques1answ3
+
+    // ASSIGN ANSWER 4
+    let ques1answ4 = `${gameData.questions.question1.answers[0].answer}`;
+    ques1answ4 = spitOutAnswer(sequence1Phase3, questionsArray, ques1answ4)
+    questionsArray = [...questionsArray, ques1answ4]
+    gameData.questions.question1.answers[3].answer = ques1answ4
+
+    // SHUFFLE ANSWERS
+    shuffleArr(gameData.questions.question1.answers);
+
+    //////////////////////////////////////////////////////
+    /////////////////// QUESTION 2 ///////////////////////
+    //////////////////////////////////////////////////////
+
+    // ASSIGN QUESTION & CORRECT ANSWER
+    let questionObject = assignQuestion(secondEvent)
+    gameData.questions.question2.text = `On the spiral, ${questionObject.part1} and ${questionObject.part2}?`
+    gameData.questions.question2.answers[0].answer = `${questionObject.car1} and ${questionObject.car2}`
+    questionsArray = [gameData.questions.question2.answers[0].answer]
+
+    // ASSIGN ANSWER 2
+    let ques2answ2 = `${gameData.questions.question2.answers[0].answer}`;
+    ques2answ2 = spitOutAnswer(sequence2Phase3, questionsArray, ques2answ2)
+    questionsArray = [...questionsArray, ques2answ2]
+    gameData.questions.question2.answers[1].answer = ques2answ2
+
+    // ASSIGN ANSWER 3
+    let ques2answ3 = `${gameData.questions.question1.answers[0].answer}`;
+    ques2answ3 = spitOutAnswer(sequence2Phase3, questionsArray, ques2answ3)
+    questionsArray = [...questionsArray, ques2answ3]
+    gameData.questions.question1.answers[2].answer = ques2answ3
+
+    // ASSIGN ANSWER 4
+    let ques2answ4 = `${gameData.questions.question1.answers[0].answer}`;
+    ques2answ4 = spitOutAnswer(sequence2Phase3, questionsArray, ques2answ4)
+    questionsArray = [...questionsArray, ques2answ4]
+    gameData.questions.question1.answers[3].answer = ques2answ4
+
+    // SHUFFLE ANSWERS
+    shuffleArr(gameData.questions.question2.answers);
+
+    //////////////////////////////////////////////////////
+    /////////////////// QUESTION 3 ///////////////////////
+    //////////////////////////////////////////////////////
+
+    // ASSIGN QUESTION & CORRECT ANSWER
+    questionObject = assignQuestion(thirdEvent)
+    gameData.questions.question3.text = `On the plateau, ${questionObject.part1} and ${questionObject.part2}?`
+    gameData.questions.question3.answers[0].answer = `${questionObject.car1} and ${questionObject.car2}`
+    questionsArray = [gameData.questions.question3.answers[0].answer]
+
+    // ASSIGN ANSWER 2
+    let ques3answ2 = `${gameData.questions.question3.answers[0].answer}`;
+    ques3answ2 = spitOutAnswer(sequence3Phase3, questionsArray, ques3answ2)
+    questionsArray = [...questionsArray, ques3answ2]
+    gameData.questions.question3.answers[1].answer = ques3answ2
+
+    // ASSIGN ANSWER 3
+    let ques3answ3 = `${gameData.questions.question1.answers[0].answer}`;
+    ques3answ3 = spitOutAnswer(sequence3Phase3, questionsArray, ques3answ3)
+    questionsArray = [...questionsArray, ques3answ3]
+    gameData.questions.question1.answers[2].answer = ques3answ3
+
+    // ASSIGN ANSWER 4
+    let ques3answ4 = `${gameData.questions.question1.answers[0].answer}`;
+    ques3answ4 = spitOutAnswer(sequence3Phase3, questionsArray, ques3answ4)
+    questionsArray = [...questionsArray, ques3answ4]
+    gameData.questions.question1.answers[3].answer = ques3answ4
+
+    // SHUFFLE ANSWERS
+    shuffleArr(gameData.questions.question3.answers);
+
+    //////////////////////////////////////////////////////
+    /////////////////// QUESTION 4 ///////////////////////
+    //////////////////////////////////////////////////////
+
+    // ASSIGN QUESTION & CORRECT ANSWER
+    questionObject = assignQuestion(fourthEvent)
+    gameData.questions.question4.text = `On the beach, ${questionObject.part1} and ${questionObject.part2}?`
+    gameData.questions.question4.answers[0].answer = `${questionObject.car1} and ${questionObject.car2}`
+    questionsArray = [gameData.questions.question4.answers[0].answer]
+
+    // ASSIGN ANSWER 2
+    let ques4answ2 = `${gameData.questions.question4.answers[0].answer}`;
+    ques4answ2 = spitOutAnswer(sequence0, questionsArray, ques4answ2)
+    questionsArray = [...questionsArray, ques4answ2]
+    gameData.questions.question4.answers[1].answer = ques4answ2
+
+    // ASSIGN ANSWER 3
+    let ques4answ3 = `${gameData.questions.question1.answers[0].answer}`;
+    ques4answ3 = spitOutAnswer(sequence0, questionsArray, ques4answ3)
+    questionsArray = [...questionsArray, ques4answ3]
+    gameData.questions.question1.answers[2].answer = ques4answ3
+
+    // ASSIGN ANSWER 4
+    let ques4answ4 = `${gameData.questions.question1.answers[0].answer}`;
+    ques4answ4 = spitOutAnswer(sequence0, questionsArray, ques4answ4)
+    questionsArray = [...questionsArray, ques4answ4]
+    gameData.questions.question1.answers[3].answer = ques4answ4
+
+    // SHUFFLE ANSWERS
+    shuffleArr(gameData.questions.question4.answers);
+
+    //////////////////////////////////////////////////////
+    /////////////////// QUESTION 5 ///////////////////////
+    //////////////////////////////////////////////////////
+
+    // ASSIGN QUESTION AND CORRECT ANSWER
+    gameData.questions.question5.text = questions[1].text
+    gameData.questions.question5.answers[0].answer = finishline.description3_car
+
+    // ASSIGN QUESTION 2
+    gameData.questions.question5.answers[1].answer = sequence5Phase0[1]
+
+    // SHUFFLE ARR
+    shuffleArr(gameData.questions.question5.answers)
     // RETURN GAME DATA OBJECT
     return {
         type: "START_GAME",
