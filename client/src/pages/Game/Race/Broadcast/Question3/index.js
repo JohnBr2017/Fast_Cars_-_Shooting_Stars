@@ -6,9 +6,12 @@ class Question3 extends Component {
 
         this.handleChange = this.handleChange.bind(this)
     }
-    handleChange=(e)=>{
-        // let {value}= e.target;
+    handleChange = (e) => {
+        let { value } = e.target;
+        this.props.changeScore(value);
+        console.log(this.props.score)
         this.props.pageChange()
+
     }
 
     render() {

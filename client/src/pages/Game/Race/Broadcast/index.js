@@ -62,7 +62,6 @@ class Broadcast extends Component {
         let quest5 = { display: this.state.quest5 ? "block" : "none" }
         let score = { display: this.state.score ? "block" : "none" }
         let { game } = this.props
-    
         return (
             <div>
                 <div style={quest1} >

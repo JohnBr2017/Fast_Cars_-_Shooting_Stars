@@ -19,6 +19,7 @@ class Question1 extends Component {
 
     render() {
         let game = this.props
+        console.log(game)
         let text = game.game.game.data.questions.question1.text
         let answers = game.game.game.data.questions.question1.answers
         return (
@@ -27,7 +28,7 @@ class Question1 extends Component {
                 <h2>{text}</h2>
                 {answers.map((singleAnswer, i) => {
                     return (
-                        <div key={i} onClick={this.handleChange} value={singleAnswer.correct}>{singleAnswer.answer}</div>
+                        <div key={i} onClick={this.handleChange} value={singleAnswer.correct} >{singleAnswer.answer}</div>
                     )
                 })}
             </div>
