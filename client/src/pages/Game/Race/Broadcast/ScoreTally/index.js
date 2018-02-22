@@ -3,13 +3,12 @@ import {connect} from "react-redux"
 
 class ScoreTally extends Component {
     render() {
-        let score =  this.state
-        // let game = this.props
+        console.log(this.props)
         
         return (
             <div>
-                <h3>score tally for each correct answer</h3>
-                
+                <h3>Here's how well ya did! Your score is:</h3>
+                <h1>{this.props.score}</h1>
             </div>
         )
     }
