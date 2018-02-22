@@ -1,24 +1,16 @@
 // SCORECARD REDUCER 
 // ==============================
 
-<<<<<<< HEAD
-=======
 // IMPORT FROM PACKEAGES
 import axios from "axios";
 
 // VARIABLES
 const scoreUrl = "/score/"
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
 
 /////////////////////
 // ACTION CREATORS //
 /////////////////////
 
-<<<<<<< HEAD
-/////////////
-// REDUCER //
-/////////////
-=======
 export const clearScore = () => {
     return {
         type: "CLEAR_SCORE",
@@ -61,4 +53,3 @@ const score = (prevScore = { value: 0, username: "" }, action) => {
     }
 }
 export default score;
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97

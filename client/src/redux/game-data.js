@@ -297,10 +297,6 @@ const spitOutAnswer = (sequence, answArr, changingAnswer) => {
 
 const assignQuestion = (event) => {
     if (event.name === "toto_appears") {
-<<<<<<< HEAD
-
-=======
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
         return {
             part1: "which was the car was the one that crashed",
             part2: "which was the car was the one that jammed out to \"Africa\"'s sweet jams",
@@ -314,47 +310,6 @@ const assignQuestion = (event) => {
         car1: "",
         car2: ""
     }
-<<<<<<< HEAD
-    // 1 & 2
-    if (event.description1_type !== "", event.description2_type !== "") {
-        output.part1 = questions.filter(question => {
-
-            return (question.type === event.description1_type)
-        })[0]
-
-        output.car1 = event.description1_car
-
-        output.part2 = questions.filter(question => {
-            return (question.type === event.description2_type)
-        })[0].text
-        output.car2 = event.description2_car
-    }
-    // 2 & 3
-    if (event.description1_type === "", event.description2_type !== "") {
-        output.part1 = questions.filter(question => {
-            return (question.type === event.description2_type)
-        })[0].text
-        output.car1 = event.description2_car
-
-        output.part2 = questions.filter(question => {
-            return (question.type === event.description3_type)
-        })[0].text
-        output.car2 = event.description3_car
-    }
-    // 1 & 3
-    if (event.description1_type !== "", event.description2_type === "") {
-        output.part1 = questions.filter(question => {
-            return (question.type === event.description1_type)
-        })[0].text
-        output.car1 = event.description1_car
-
-        output.part2 = questions.filter(question => {
-            return (question.type === event.description3_type)
-        })[0].text
-        output.car2 = event.description3_car
-    }
-    return output
-=======
     // RUNNING OF THE COEDS EXCEPTION
     if (event.name === "running_of_the_coeds") {
         output.part1 = questionTextAssigner(event.description1_type)
@@ -405,7 +360,6 @@ const questionTextAssigner = (type) => {
         default:
             return "nothing is real, linda"
     }
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
 }
 
 // CLEAR GAME
