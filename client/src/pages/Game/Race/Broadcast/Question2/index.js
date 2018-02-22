@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+import { connect } from "react-redux";
+import { changeScore } from "../../../../../redux/scorecard"
+
 class Question2 extends Component {
         constructor(props){
         super(props);
@@ -9,7 +12,6 @@ class Question2 extends Component {
     handleChange = (e) => {
         let { value } = e.target;
         this.props.changeScore(value);
-        console.log(this.props.score)
         this.props.pageChange()
 
     }
@@ -32,4 +34,9 @@ class Question2 extends Component {
         )
     }
 }
-export default Question2
+const mapStateToProps = (state) => {
+    return {
+        score: state.score.value
+    }
+}
+export default connect(mapStateToProps, { changeScore })(Question2)

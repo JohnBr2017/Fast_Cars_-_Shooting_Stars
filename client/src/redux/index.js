@@ -4,10 +4,6 @@ import game from "./game-data"
 import score from "./scorecard"
 
 import thunk from "redux-thunk";
-
-import game from "./game-data";
-
-import logs from './logs';
 import user from './auth';
 
 const reducer = combineReducers({

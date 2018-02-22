@@ -4,20 +4,29 @@ import game from "./game-data"
 import score from "./scorecard"
 
 import thunk from "redux-thunk";
+<<<<<<< HEAD
 
 import game from "./game-data";
+
+import logs from './logs';
+=======
+>>>>>>> 1d9c9819b8cd27f3b22c1f1ab100285feed44870
 import user from './auth';
 
 const reducer = combineReducers({
+    logs,
     game,
     user
 })
 
 const store = createStore(
-    combineReducers({ scoreboard, game, score }),
+    combineReducers({ scoreboard, game, score, user }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     applyMiddleware(thunk)
 );
 
+<<<<<<< HEAD
 export default store;
-
+=======
+export default store;
+>>>>>>> 1d9c9819b8cd27f3b22c1f1ab100285feed44870

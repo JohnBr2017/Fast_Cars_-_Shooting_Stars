@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { changeScore } from "../../../../../redux/scorecard"
 
-class Question5 extends Component {
+class Question4 extends Component {
     constructor(props){
         super(props);
 
@@ -12,17 +12,22 @@ class Question5 extends Component {
     handleChange = (e) => {
         let { value } = e.target;
         this.props.changeScore(value);
+<<<<<<< HEAD
+        console.log(this.props.score)
+=======
+>>>>>>> 1d9c9819b8cd27f3b22c1f1ab100285feed44870
         this.props.pageChange()
 
     }
 
     render() {
         let game = this.props
-        let text = game.game.game.data.questions.question5.text
-        let answers = game.game.game.data.questions.question5.answers        
+        let text = game.game.game.data.questions.question4.text
+        let answers = game.game.game.data.questions.question4.answers        
+        // console.log(answers)
         return (
             <div>
-                <h1>Question 5</h1>
+                <h1>Question 4</h1>
                 <h2>{text}</h2>
                 {answers.map((singleAnswer, i)=>{
                     return (
@@ -38,4 +43,4 @@ const mapStateToProps = (state) => {
         score: state.score.value
     }
 }
-export default connect(mapStateToProps, { changeScore })(Question5)
+export default connect(mapStateToProps, { changeScore })(Question4)
