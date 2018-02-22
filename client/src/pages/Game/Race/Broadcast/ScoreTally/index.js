@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 class ScoreTally extends Component {
     render() {
         let game = this.props
-        console.log(game.game.game.data.scoreCard)
+        // console.log(game.game.game.data.scoreCard)
         return (
             <div>
                 <h3>score tally for each correct answer</h3>

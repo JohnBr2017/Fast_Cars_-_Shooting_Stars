@@ -7,7 +7,7 @@ import './Home.css';
 function Home() {
     return (
         <div className="home">
-            Home
+            <h1 className="fastCars" >Fast Cars Shooting Stars</h1>
         </div>
     )
 }

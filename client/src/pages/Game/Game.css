@@ -19,3 +19,9 @@
     border-radius: 50%;
     border: black solid 2px;
 }
+.scorecard{
+    background-color: silver;
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+}

@@ -21,6 +21,7 @@ class Scorecard extends Component {
     }
     render() {
         let { winnerList } = this.props
+        console.log(winnerList)
         return (
             <div className="scorecard">
                 <h2 className="userTitle">Username</h2>

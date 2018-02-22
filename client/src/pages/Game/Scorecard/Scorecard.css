@@ -1,12 +1,15 @@
 .scorecard{
+    background: linear-gradient( blue, green);
+    border: black solid 1px;
     width: 25vw;
-    border: red dotted 1px;
+    border-radius: 5px;
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-rows: auto;
     grid-template-areas: 
     "usertitle  scoretitle"
-    "scores scores"
+    "scores scores";
+    opacity: .93;
 }
 .userTitle{
     grid-area: usertitle;
@@ -18,10 +21,11 @@
     grid-area: scores;
 }
 .singleScore{
+    border: black solid 1px;
     display: grid;
     grid-template-columns: 3fr 2fr;
     grid-template-areas: 
-    "user score"
+    "user score";
 }
 .winnerName{
     grid-area: user;
@@ -29,4 +33,18 @@
 .winnerScore{
     grid-area: score;
 }
-
+.singleScore:nth-child(1) {
+    font-size: 20px;
+}
+.singleScore:nth-child(2) {
+    font-size: 18px;
+}
+.singleScore:nth-child(3) {
+    font-size: 16px;
+}
+.singleScore:nth-child(4) {
+    font-size: 14px;
+}
+.singleScore:nth-child(5) {
+    font-size: 12px;
+}
