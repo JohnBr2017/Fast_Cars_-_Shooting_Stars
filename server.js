@@ -17,7 +17,7 @@ app.use("/api", expressJwt({secret: process.env.SECRET}));
 // app.use(cors());
 app.use("/auth", require("./routes/auth"));
 app.use('/api/modelz', require('./routes/routes'));
-app.use("/api/score", require("./routes/scoreboard"))
+app.use("/score", require("./routes/scoreboard"))
 
 
 app.listen(8080, () =>{
