@@ -630,7 +630,7 @@ export function startGame(gameData) {
     gameData.questions.question1.answers[3].answer = ques1answ4
 
     // SHUFFLE ANSWERS
-    shuffleArr(gameData.questions.question1.answers);
+    // shuffleArr(gameData.questions.question1.answers);
 
     //////////////////////////////////////////////////////
     /////////////////// QUESTION 2 ///////////////////////
