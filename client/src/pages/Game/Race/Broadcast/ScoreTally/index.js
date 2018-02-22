@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 class ScoreTally extends Component {
     render() {
-        let game = this.props
+        // let game = this.props
         // console.log(game.game.game.data.scoreCard)
         return (
             <div>

@@ -511,8 +511,7 @@ export function startGame(gameData) {
     availableCars = [...sequence4Phase0]
     gameData.raceData.sequence4.crashedCars = [...gameData.raceData.sequence3.crashedCars]
     let beachEvents = screenEvents(potentialEvents, "beach")
-    // let fourthEvent = beachEvents[randomOf(beachEvents.length)]
-    let fourthEvent = events[3]
+    let fourthEvent = beachEvents[randomOf(beachEvents.length)]
     potentialEvents.splice(potentialEvents.indexOf(fourthEvent), 1)
     // FIRST EVENT PHASE CHANGE
     eventCar = screenCars(sequence4Phase0, availableCars, fourthEvent.description1_type)
