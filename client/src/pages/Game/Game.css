@@ -2,6 +2,7 @@
     background-color: rgba(151, 146, 146, 0.8);
     display: flex;
     flex-direction: column;
+    height: 300px;
     justify-content: center;
     /* align-items: center; */
     padding: 25px;
@@ -24,4 +25,13 @@
     position: absolute;
     bottom: 3%;
     right: 3%;
+}
+
+.question {
+    height: 300px;
+}
+.questionButton{
+    border: silver outset 2px;
+    border-radius: 5px;
+    font-size: 30px;
 }

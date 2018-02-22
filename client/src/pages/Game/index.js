@@ -11,6 +11,7 @@ import Race from "./Race"
 // import Scorecard from "./Scorecard"
 // import CarProfiles from "./CarProfiles"
 import { startGame, clearGame } from "../../redux/game-data"
+import { clearScore } from "../../redux/scorecard"
 import './Game.css';
 
 
@@ -27,6 +28,7 @@ class Game extends Component {
     handleGoClick() {
         this.props.clearGame();
         this.props.startGame(this.props.game.data);
+        this.props.clearScore();
         this.setState({
             launch: !this.state.launch,
             race: !this.state.race
@@ -41,7 +43,9 @@ class Game extends Component {
                 <div className='raceBackground'>
                     <div style={launch}>
                         Launchpad for start of race
-                <p>HERE'S A BUNCH OF TEXT ABOUT H0W TO PLAY OUR GAME CLICK THE BUTTON WHEN YOU WANT, LINDA.</p>
+                <p>Welcome to Fast Car & Shooting Stars! You are about to read a story of an exciting and whimsical race between 5 fun novelty themed cars! 
+                Pay attention and after you're done we will ask you some questions to measure your enthusiasm about fictional races! Try to ge the highest score, and measure your self-worth by our approval. 
+                Click "GO" to get started.</p>
                         <button className="goButton" onClick={this.handleGoClick}  >GO</button>
                     </div>
                     <div style={race}>
@@ -65,7 +69,7 @@ const mapStateToProps = (state) => {
         game: state.game
     }
 }
-export default connect(mapStateToProps, { startGame, clearGame })(Game)
+export default connect(mapStateToProps, { startGame, clearGame, clearScore })(Game)
 
 // make this a state component
 // import the startGame action creator from redux

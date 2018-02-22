@@ -10,9 +10,11 @@ class Question1 extends Component {
     }
 
     handleChange = (e) => {
+        console.log(this.props.game)
         let { value } = e.target;
         this.props.changeScore(value);
         this.props.pageChange()
+        
 
     }
 
@@ -22,12 +24,13 @@ class Question1 extends Component {
         let text = game.game.game.data.questions.question1.text
         let answers = game.game.game.data.questions.question1.answers
         return (
-            <div>
+            <div className="question">
                 <h1>Question 1</h1>
                 <h2>{text}</h2>
                 {answers.map((singleAnswer, i) => {
+                    console.log(singleAnswer)
                     return (
-                        <div key={i} onClick={this.handleChange} value={singleAnswer.correct} >{singleAnswer.answer}</div>
+                        <div key={i} className="questionButton" onClick={this.handleChange} value={singleAnswer.correct} >{singleAnswer.answer}</div>
                     )
                 })}
             </div>

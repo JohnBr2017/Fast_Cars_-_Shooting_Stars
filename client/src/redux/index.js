@@ -6,11 +6,6 @@ import score from "./scorecard"
 import thunk from "redux-thunk";
 import user from './auth';
 
-const reducer = combineReducers({
-    logs,
-    game,
-    user
-})
 
 const store = createStore(
     combineReducers({ scoreboard, game, score, user }),
