@@ -1,11 +1,7 @@
 [
     { 
         "name": "question1",
-<<<<<<< HEAD
-        "type": "",
-=======
         "type": "startingline",
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
         "text": "Who was in first place and who was in last place at the starting line?",
         "correctAnswer": "",
         "falseAnswer1": "" ,
@@ -14,11 +10,7 @@
     },
     { 
         "name": "question2",
-<<<<<<< HEAD
-        "type": "",
-=======
         "type": "finishline",
->>>>>>> 826590ff473dd4fd886ae463b5c46554c7bc8a97
         "text": "Who was the Winner!!!?",
         "correctAnswer": "",
         "falseAnswer1": "" ,
