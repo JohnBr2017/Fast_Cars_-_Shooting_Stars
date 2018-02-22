@@ -1,5 +1,11 @@
+// SCOREBOARD -- REDUCER
+// ==============================
+
+// IMPORT FROM PACKEAGES
 import axios from "axios";
-const scoreUrl = "http://localhost:8080/score/"
+
+// VARIABLES
+const scoreUrl = "/score/"
 
 export function getScore() {
     return dispatch => {

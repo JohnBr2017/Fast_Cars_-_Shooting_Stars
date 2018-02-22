@@ -7,7 +7,7 @@ class Question2 extends Component {
         this.handleChange = this.handleChange.bind(this)
     }
     handleChange=(e)=>{
-        let {value}= e.target;
+        // let {value}= e.target;
         this.props.pageChange()
     }
 

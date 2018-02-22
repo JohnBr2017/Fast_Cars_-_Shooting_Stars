@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Switch, Route } from "react-router-dom";
 //Navbar
-import Navbar from "./navbar"
+import Navbar from "./Navbar"
 //Pages
-import Launcher from "../pages/launch"
-import Home from "../pages/home";
-import About from "../pages/about";
-import Contact from "../pages/contact";
+import Launcher from "../pages/Launch"
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
 import Game from "../pages/Game";
 
 

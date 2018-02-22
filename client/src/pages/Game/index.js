@@ -49,7 +49,7 @@ class Game extends Component {
                     </div>
                 </div>
                 {/* <div className="scorecard">
-                    <Scorecard></Scorecard>
+                    <ScoreBoard />
                 </div>
                 <div>
                     <CarProfiles></CarProfiles>

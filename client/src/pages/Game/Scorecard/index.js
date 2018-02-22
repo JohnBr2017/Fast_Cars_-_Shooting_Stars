@@ -7,7 +7,7 @@ import { getScore } from "../../../redux/scoreboard"
 
 import "./Scorecard.css"
 
-class Scorecard extends Component {
+class ScoreBoard extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -42,8 +42,9 @@ class Scorecard extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        winnerList: state.Scoreboard,
+        score: state.score.value,
+        winnerList: state.Scoreboard
     }
 }
 
-export default connect(mapStateToProps, { getScore })(Scorecard); 
+export default connect(mapStateToProps, { getScore })(ScoreBoard); 
