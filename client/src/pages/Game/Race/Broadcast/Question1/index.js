@@ -12,14 +12,12 @@ class Question1 extends Component {
     handleChange = (e) => {
         let { value } = e.target;
         this.props.changeScore(value);
-        console.log(this.props.score)
         this.props.pageChange()
 
     }
 
     render() {
         let game = this.props
-        console.log(game)
         let text = game.game.game.data.questions.question1.text
         let answers = game.game.game.data.questions.question1.answers
         return (
