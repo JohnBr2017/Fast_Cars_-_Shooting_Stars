@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sign.css';
-import { Link, Route, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SignUp from '../../SignUp/index';
 
 function LoginForm(props) {
@@ -27,7 +27,7 @@ function LoginForm(props) {
                     <br />
                     <br />
                     <br />
-                    <Link to="/SignUp" component={SignUp}>Sign Up</Link>
+                    <Link to="/SignUp">Sign Up</Link>
                 </div>
             </form>
         </div>
