@@ -8,8 +8,8 @@ import { connect } from "react-redux";
 
 // IMPORT FROM FILES
 import Race from "./Race"
-import Scorecard from "./Scorecard"
-import CarProfiles from "./CarProfiles"
+// import Scorecard from "./Scorecard"
+// import CarProfiles from "./CarProfiles"
 import { startGame, clearGame } from "../../redux/game-data"
 import './Game.css';
 
@@ -48,12 +48,12 @@ class Game extends Component {
                         <Race game={game} ></Race>
                     </div>
                 </div>
-                <div className="scorecard">
+                {/* <div className="scorecard">
                     <Scorecard></Scorecard>
                 </div>
                 <div>
                     <CarProfiles></CarProfiles>
-                </div>
+                </div> */}
             </div>
         )
     }
