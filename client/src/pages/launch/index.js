@@ -1,10 +1,10 @@
-import React from 'react'
-import SignUpIn from "./sign_in-sign_up"
+import React from 'react';
+import Login from "./Login/index";
 
 function Launcher() {
     return (
         <div>
-            <SignUpIn></SignUpIn>
+            <Login></Login>
         </div>
     )
 }

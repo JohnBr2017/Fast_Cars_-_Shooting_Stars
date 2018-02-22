@@ -1,5 +1,11 @@
+// SCOREBOARD -- REDUCER
+// ==============================
+
+// IMPORT FROM PACKEAGES
 import axios from "axios";
-const scoreUrl = "http://localhost:8080/score/"
+
+// VARIABLES
+const scoreUrl = "/score/"
 
 export function getScore() {
     return dispatch => {
@@ -22,7 +28,7 @@ export function addPlayerScore(newScore) {
                 console.log(response.data)
                 dispatch({
                     type: "NEW_SCORE",
-                    newPlayerScore: response.data
+                    newPlayerScore: response.data 
                 })
             })
             .catch(err => {

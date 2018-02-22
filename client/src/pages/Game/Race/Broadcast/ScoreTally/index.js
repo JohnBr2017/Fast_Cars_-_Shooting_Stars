@@ -1,15 +1,22 @@
 import React, { Component } from 'react'
+import {connect} from "react-redux"
 
 class ScoreTally extends Component {
     render() {
-        let game = this.props
-        console.log(game.game.game.data.scoreCard)
+        let score =  this.state
+        // let game = this.props
+        
         return (
             <div>
                 <h3>score tally for each correct answer</h3>
-                {/* <h2>{game.game.game.data.scoreCard}</h2> */}
+                
             </div>
         )
     }
 }
-export default ScoreTally
+const mapStateToProps = (state) => {
+    return {
+        score: state.score.value
+    }
+}
+export default connect(mapStateToProps, { })(ScoreTally)

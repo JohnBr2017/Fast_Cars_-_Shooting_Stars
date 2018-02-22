@@ -1,20 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { logout } from "../../redux/auth";
 
 import './Nav.css';
 
-function Navbar(props) {
-    return (
-        <div className="outer">
-            <div className="navDiv">
-                <Link to="/Home" >Home</Link>
-                <Link to="/Game" >Race</Link>
-                <Link to="/About">About</Link>
-                <Link to="/Contact">Contact</Link>
-                <Link to="/">Login</Link>
+class Navbar extends Component {
+    render() {
+        const isAuthenticated = this.props.isAuthenticated;
+        return (
+            <div className="outer">
+                <div className="navDiv">
+                    {isAuthenticated ? <div className="navlinkz"><Link to="/Home" >Home</Link></div> : null}
+                    {isAuthenticated ? <div className="navlinkz"><Link to="/Game" >Race</Link></div> : null}
+                    {isAuthenticated ? <div className="navlinkz"><Link to="/About">About</Link></div> : null}
+                    <div className="navlinkz"><Link to="/Contact">Contact</Link></div>
+                    {isAuthenticated ? null : <div className="navlinkz"><Link to="/login">Login</Link></div>}
+                    {isAuthenticated ? <div className="navlinkz">
+                        <button onClick={this.props.logout}>Logout</button>
+                    </div> : null}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => {
+    return state.user;
+}
+
+export default connect(mapStateToProps, { logout })(Navbar); 
