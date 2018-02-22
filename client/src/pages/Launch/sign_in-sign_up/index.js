@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
+
+import SignUp from '../../SignUp/SignUpForm';
 
 import './Sign.css';
 
@@ -18,7 +20,7 @@ class SignUpIn extends Component {
                         <br />
                         <br />
                         {/* <button>Sign Up</button> */}
-                        <Link to="/SignUp">Sign Up</Link>
+                        <Link to="/SignUp" component={SignUp}>Sign Up</Link>
                     </div>
                 </form>
             </div>
