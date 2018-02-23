@@ -25,10 +25,27 @@ export const changeScore = (boolean) =>{
             payload: 200
         }
     } else {
+        console.log("JIMMY MIA?")
         return {
             type: "CHANGE_SCORE",
-            payload: 0
+            payload: 100
         } 
+    }
+}
+
+export function addPlayerScore(newScore) {
+    return function (dispatch) {
+        axios.post(scoreUrl, newScore)
+            .then(response => {
+                console.log(response.data)
+                dispatch({
+                    type: "NEW_SCORE",
+                    newPlayerScore: response.data 
+                })
+            })
+            .catch(err => {
+                console.error(err)
+            })
     }
 }
 
@@ -45,7 +62,7 @@ const score = (prevScore = { value: 0, username: "" }, action) => {
             }
         case "CLEAR_SCORE":
             return {
-                value: action.payoad,
+                value: action.payload,
                 username: prevScore.usernmae
             }
         default:

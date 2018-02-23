@@ -21,21 +21,7 @@ export function getScore() {
             });
     }
 }
-export function addPlayerScore(newScore) {
-    return function (dispatch) {
-        axios.post(scoreUrl, newScore)
-            .then(response => {
-                console.log(response.data)
-                dispatch({
-                    type: "NEW_SCORE",
-                    newPlayerScore: response.data 
-                })
-            })
-            .catch(err => {
-                console.error(err)
-            })
-    }
-}
+
 const Scoreboard = (prevState = [], action) => {
     switch (action.type) {
         case "GET_SCORES":
